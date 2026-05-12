@@ -1,0 +1,17 @@
+<idea-plugin>
+
+    <id>com.aiassistant.plugin</id>
+    <name>AI Code Assistant</name>
+    <vendor>AI Assistant</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <actions>
+        <action id="AIAssistant.ExplainCode"
+                class="ai_plugin.actions.ExplainCodeAction"
+                text="Explain Code">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+
+</idea-plugin>
