@@ -9,7 +9,7 @@ import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.progress.Task
 import com.intellij.openapi.ui.Messages
 
-class ExplainCodeAction : AnAction() {
+class SuggestOptimizationsAction : AnAction() {
 
     override fun actionPerformed(event: AnActionEvent) {
         val project = event.project ?: return
@@ -17,18 +17,18 @@ class ExplainCodeAction : AnAction() {
         val code    = editor.selectionModel.selectedText
 
         if (code.isNullOrBlank()) {
-            Messages.showWarningDialog(project, "Select some code first.", "Explain Code")
+            Messages.showWarningDialog(project, "Select some code first.", "Suggest Optimizations")
             return
         }
 
-        ProgressManager.getInstance().run(object : Task.Backgroundable(project, "Asking Groq...", false) {
+        ProgressManager.getInstance().run(object : Task.Backgroundable(project, "Suggesting optimizations...", false) {
             override fun run(indicator: ProgressIndicator) {
                 indicator.isIndeterminate = true
                 indicator.text = "Scanning project..."
                 val context = ProjectScanner.collectContext(project)
                 indicator.text = "Asking Groq..."
                 val (title, message) = try {
-                    "Groq Explanation" to GroqClient().explain(code, context)
+                    "Optimization Suggestions" to GroqClient().suggestOptimizations(code, context)
                 } catch (e: Exception) {
                     "Error" to (e.message ?: "Unknown error")
                 }
