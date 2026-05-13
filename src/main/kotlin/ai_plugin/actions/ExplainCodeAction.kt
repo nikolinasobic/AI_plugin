@@ -1,5 +1,7 @@
 package ai_plugin.actions
 
+import ai_plugin.client.GroqClient
+
 class ExplainCodeAction : BaseAIAction(
     actionLabel = "Explain Code",
     successTitle = "Groq Explanation",

@@ -1,4 +1,4 @@
-package ai_plugin.actions
+package ai_plugin.config
 
 internal object PluginConfig {
     const val GROQ_API_KEY_ENV = "GROQ_API_KEY"

@@ -1,5 +1,7 @@
 package ai_plugin.actions
 
+import ai_plugin.client.GroqClient
+
 class SuggestOptimizationsAction : BaseAIAction(
     actionLabel = "Suggest Optimizations",
     successTitle = "Optimization Suggestions",

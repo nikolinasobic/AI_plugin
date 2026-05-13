@@ -1,5 +1,6 @@
-package ai_plugin.actions
+package ai_plugin.client
 
+import ai_plugin.config.PluginConfig
 import com.google.gson.JsonParser
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient

@@ -1,5 +1,6 @@
-package ai_plugin.actions
+package ai_plugin.scanner
 
+import ai_plugin.config.PluginConfig
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import java.io.File

@@ -1,4 +1,4 @@
-package ai_plugin.actions
+package ai_plugin.ui
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
@@ -64,7 +64,7 @@ class StreamingDialog(
         textArea.caretPosition = textArea.document.length
     }
 
-    // Must be called on EDT (via invokeLater)
+    // Must be called on EDT (via invokeLater with ModalityState.any())
     fun markComplete() {
         flushTimer.stop()
         flushBuffer()

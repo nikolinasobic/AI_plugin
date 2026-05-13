@@ -2,6 +2,9 @@ package ai_plugin.actions
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
+import ai_plugin.client.GroqClient
+import ai_plugin.scanner.ProjectScanner
+import ai_plugin.ui.StreamingDialog
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.application.ModalityState
 import com.intellij.openapi.command.WriteCommandAction
