@@ -1,17 +1,28 @@
 <idea-plugin>
-
     <id>com.aiassistant.plugin</id>
     <name>AI Code Assistant</name>
     <vendor>AI Assistant</vendor>
-
     <depends>com.intellij.modules.platform</depends>
 
     <actions>
-        <action id="AIAssistant.ExplainCode"
-                class="ai_plugin.actions.ExplainCodeAction"
-                text="Explain Code">
+        <group id="AIAssistant.Group" text="AI Assistant" popup="true">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <action id="AIAssistant.ExplainCode"
+                    class="ai_plugin.actions.ExplainCodeAction"
+                    text="Explain Code"
+                    description="Ask Groq to explain the selected code"/>
+            <action id="AIAssistant.SuggestOptimizations"
+                    class="ai_plugin.actions.SuggestOptimizationsAction"
+                    text="Suggest Optimizations"
+                    description="Ask Groq to suggest 3 optimizations for the selected code"/>
+        </group>
+
+        <action id="AIAssistant.GenerateReadme"
+                class="ai_plugin.actions.GenerateReadmeAction"
+                text="Generate README"
+                description="Generate a README.md for this project using AI">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
     </actions>
-
 </idea-plugin>
+
