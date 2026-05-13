@@ -159,39 +159,31 @@ object ProjectScanner {
             // 2. Files this file imports — direct dependencies
             if (config != null) {
                 resolveImports(currentFile, config, fileIndex).forEach { file ->
-                    if (builder.length < PluginConfig.MAX_CONTEXT_CHARS) addFile(file, root, builder, included)
+                    addFile(file, root, builder, included)
                 }
             }
 
             // 3. Build/config files — give AI project structure awareness
             CONFIG_FILENAMES.flatMap { fileIndex[it] ?: emptyList() }
                 .sortedBy { it.path }
-                .forEach { file ->
-                    if (builder.length < PluginConfig.MAX_CONTEXT_CHARS) addFile(file, root, builder, included)
-                }
+                .forEach { addFile(it, root, builder, included) }
 
             // 4. Fill remaining budget with other same-language files
             if (config != null) {
                 fileIndex.values.flatten()
                     .filter { it.extension?.lowercase() in config.extensions }
                     .sortedBy { it.path }
-                    .forEach { file ->
-                        if (builder.length < PluginConfig.MAX_CONTEXT_CHARS) addFile(file, root, builder, included)
-                    }
+                    .forEach { addFile(it, root, builder, included) }
             }
         } else {
             // No current file — include config files first, then all source files
             CONFIG_FILENAMES.flatMap { fileIndex[it] ?: emptyList() }
                 .sortedBy { it.path }
-                .forEach { file ->
-                    if (builder.length < PluginConfig.MAX_CONTEXT_CHARS) addFile(file, root, builder, included)
-                }
+                .forEach { addFile(it, root, builder, included) }
             fileIndex.values.flatten()
                 .filter { it.extension?.lowercase() in ALL_SOURCE_EXTENSIONS }
                 .sortedBy { it.path }
-                .forEach { file ->
-                    if (builder.length < PluginConfig.MAX_CONTEXT_CHARS) addFile(file, root, builder, included)
-                }
+                .forEach { addFile(it, root, builder, included) }
         }
 
         return builder.toString()
@@ -210,6 +202,7 @@ object ProjectScanner {
     }
 
     private fun addFile(file: File, root: File, builder: StringBuilder, included: MutableSet<String>) {
+        if (builder.length >= PluginConfig.MAX_CONTEXT_CHARS) return
         if (!file.exists() || !file.isFile) return
         val canonical = try { file.canonicalPath } catch (_: Exception) { file.absolutePath }
         if (canonical in included) return
