@@ -16,6 +16,13 @@
                     text="Suggest Optimizations"
                     description="Ask Groq to suggest 3 optimizations for the selected code"/>
         </group>
+
+        <action id="AIAssistant.GenerateReadme"
+                class="ai_plugin.actions.GenerateReadmeAction"
+                text="Generate README"
+                description="Generate a README.md for this project using AI">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
     </actions>
 </idea-plugin>
 

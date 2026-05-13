@@ -179,7 +179,12 @@ object ProjectScanner {
                     }
             }
         } else {
-            // No current file info — fall back to all source files
+            // No current file — include config files first, then all source files
+            CONFIG_FILENAMES.flatMap { fileIndex[it] ?: emptyList() }
+                .sortedBy { it.path }
+                .forEach { file ->
+                    if (builder.length < PluginConfig.MAX_CONTEXT_CHARS) addFile(file, root, builder, included)
+                }
             fileIndex.values.flatten()
                 .filter { it.extension?.lowercase() in ALL_SOURCE_EXTENSIONS }
                 .sortedBy { it.path }

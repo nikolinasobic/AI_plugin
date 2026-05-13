@@ -3,8 +3,7 @@ package ai_plugin.actions
 class SuggestOptimizationsAction : BaseAIAction(
     actionLabel = "Suggest Optimizations",
     successTitle = "Optimization Suggestions",
-    progressText = "Suggesting optimizations...",
 ) {
-    override fun callGroq(code: String, language: String, context: String) =
-        GroqClient.suggestOptimizations(code, language, context)
+    override fun callGroqStreaming(code: String, language: String, context: String, onToken: (String) -> Unit) =
+        GroqClient.suggestOptimizations(code, language, context, onToken)
 }
