@@ -16,13 +16,12 @@ repositories {
 
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html
 dependencies {
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    compileOnly("com.google.code.gson:gson:2.10.1")
+
     intellijPlatform {
         intellijIdea("2025.2.4")
         testFramework(org.jetbrains.intellij.platform.gradle.TestFrameworkType.Platform)
-
-
-        // Add plugin dependencies for compilation here, example:
-        // bundledPlugin("com.intellij.java")
     }
 }
 
