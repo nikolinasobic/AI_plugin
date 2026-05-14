@@ -24,6 +24,7 @@ git clone https://github.com/nikolinasobic/AI_plugin.git
 ##### After cloning
 ```bash
 cd AI_plugin
+```
 
 ### Build and Run
 
@@ -32,24 +33,29 @@ cd AI_plugin
 ./gradlew run
 ```
 
-At this point, you can open a project in which you want to test the plugin. 
+At this point, you can open a project in which you want to use the plugin. 
 The first step is to configure the API key. 
 Navigate to Settings → Tools → AI Plugin. 
 You can generate your key at [Groq Console](https://console.groq.com/authenticate?stytch_redirect_type=login).
+
+
     ![](images/api_key.png)
+
 
 After that, the plugin is ready to use!
 
 The “Generate README” feature can be found under Tools → Generate README, while “Explain Code” and “Suggest Optimizations” become available after right-clicking on the selected text. “Suggest Optimizations” and “Explain Code” are grouped under AI Assistant.
 
-##Examples
 
-1. 
+
+## Examples
+
+ 
     ![Explain code](images/explanation.png)
 
-2. 
+ 
     ![Suggest optimization](images/suggest.png)
 
-3. 
+ 
     ![Generate README](images/readme.png)
 
