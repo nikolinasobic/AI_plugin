@@ -1,4 +1,4 @@
-#AI Intelij Plugin
+# Intelij AI Plugin
 
 ## Overview
 
@@ -39,7 +39,7 @@ Navigate to Settings → Tools → AI Plugin.
 You can generate your key at [Groq Console](https://console.groq.com/authenticate?stytch_redirect_type=login).
 
 
-    ![](images/api_key.png)
+![](images/api_key.png)
 
 
 After that, the plugin is ready to use!
@@ -51,11 +51,11 @@ The “Generate README” feature can be found under Tools → Generate README, 
 ## Examples
 
  
-    ![Explain code](images/explanation.png)
+![Explain code](images/explanation.png)
 
  
-    ![Suggest optimization](images/suggest.png)
+![Suggest optimization](images/suggest.png)
 
  
-    ![Generate README](images/readme.png)
+![Generate README](images/readme.png)
 
