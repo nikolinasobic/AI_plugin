@@ -4,6 +4,14 @@
     <vendor>AI Assistant</vendor>
     <depends>com.intellij.modules.platform</depends>
 
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable
+            parentId="tools"
+            instance="ai_plugin.settings.PluginSettingsConfigurable"
+            id="ai_plugin.settings.PluginSettingsConfigurable"
+            displayName="AI Plugin"/>
+    </extensions>
+
     <actions>
         <group id="AIAssistant.Group" text="AI Assistant" popup="true">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
@@ -14,7 +22,7 @@
             <action id="AIAssistant.SuggestOptimizations"
                     class="ai_plugin.actions.SuggestOptimizationsAction"
                     text="Suggest Optimizations"
-                    description="Ask Groq to suggest 3 optimizations for the selected code"/>
+                    description="Ask Groq to suggest optimizations for the selected code"/>
         </group>
 
         <action id="AIAssistant.GenerateReadme"
