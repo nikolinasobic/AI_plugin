@@ -10,6 +10,16 @@ This project represents an AI-based plugin for IntelliJ. Groq was used. The plug
 
 ## Setup and Build Instructions
 
+There are two ways to use this plugin.
+
+1. You can download a prebuilt release of the plugin from [this link](https://github.com/nikolinasobic/AI_plugin/releases/tag/v1.0.0)
+    1. Navigate to Settings → Plugins → ⚙️ (gear icon) → Install Plugin from Disk - select downloaded .zip file
+    2. Set the API key (A more detailed explanation of how to set up the API key can be found below) [API key configuration](###API key configuration)
+    3. Plugin is ready to use!
+
+2. If you don’t want to install the plugin, follow the steps below.
+
+
 ### Clone repository
 You can clone the project using either SSH or HTTPS:
 #### ssh
@@ -32,6 +42,8 @@ cd AI_plugin
 ./gradlew build
 ./gradlew run
 ```
+
+### API key configuration
 
 At this point, you can open a project in which you want to use the plugin. 
 The first step is to configure the API key. 
