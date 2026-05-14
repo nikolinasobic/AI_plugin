@@ -14,7 +14,7 @@ There are two ways to use this plugin.
 
 1. You can download a prebuilt release of the plugin from [this link](https://github.com/nikolinasobic/AI_plugin/releases/tag/v1.0.0)
     1. Navigate to Settings → Plugins → ⚙️ (gear icon) → Install Plugin from Disk - select downloaded .zip file
-    2. Set the API key (A more detailed explanation of how to set up the API key can be found below) [API key configuration](###API key configuration)
+    2. Set the API key (A more detailed explanation of how to set up the API key can be found below) 
     3. Plugin is ready to use!
 
 2. If you don’t want to install the plugin, follow the steps below.
