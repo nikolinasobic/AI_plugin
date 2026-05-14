@@ -1,6 +1,7 @@
 package ai_plugin.client
 
 import ai_plugin.config.PluginConfig
+import ai_plugin.settings.GroqCredentials
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import okhttp3.MediaType.Companion.toMediaType
@@ -13,10 +14,9 @@ import java.util.concurrent.TimeUnit
 
 internal object GroqClient {
 
-    private val apiKey: String by lazy {
-        System.getenv(PluginConfig.GROQ_API_KEY_ENV)
-            ?: error("${PluginConfig.GROQ_API_KEY_ENV} environment variable is not set.")
-    }
+    private val apiKey: String
+        get() = GroqCredentials.loadKey()
+            ?: error("Groq API key is not configured. Open Settings → Tools → AI Plugin to add it.")
 
     private val http = OkHttpClient.Builder()
         .connectTimeout(PluginConfig.HTTP_CONNECT_TIMEOUT_SEC, TimeUnit.SECONDS)

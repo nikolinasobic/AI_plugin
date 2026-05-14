@@ -2,6 +2,7 @@ package ai_plugin.ui
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
+import com.intellij.ui.JBColor
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.components.JBTextArea
 import java.awt.BorderLayout
@@ -30,7 +31,7 @@ class StreamingDialog(
     }
 
     private val statusLabel = JLabel("Generating...").apply {
-        foreground = java.awt.Color.GRAY
+        foreground = JBColor.GRAY
     }
 
     private val tokenBuffer = StringBuilder()

@@ -1,7 +1,6 @@
 package ai_plugin.config
 
 internal object PluginConfig {
-    const val GROQ_API_KEY_ENV = "GROQ_API_KEY"
     const val GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
     const val GROQ_MODEL = "llama-3.3-70b-versatile"
     const val MAX_CONTEXT_CHARS = 50_000
